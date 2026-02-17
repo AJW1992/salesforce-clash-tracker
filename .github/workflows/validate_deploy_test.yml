@@ -1,0 +1,135 @@
+name: Salesforce Validate Deploy Test
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - develop
+  pull_request:
+    branches:
+      - 'feature/**'
+      - develop
+
+# OPTIONAL
+# global environment variables (equivalent to CircleCI project level environment variables)
+env:
+  SF_DISABLE_AUTOUPDATE: true
+  SF_USE_GENERIC_UNIX_KEYCHAIN: true
+  SF_DOMAIN_RETRY: 300
+  SF_LOG_LEVEL: DEBUG
+
+jobs:
+  validate-deploy-test:
+    runs-on: ubuntu-latest
+    
+    # OPTIONAL
+    # environment variables and secrets
+    # should match a configured GitHub Environment
+    environment: development
+    
+    # OPTIONAL
+    # job specific environment variables to make available to all steps
+    # override repository level variables
+    # overridden by step level variables
+    env:
+      NODE_ENV: development
+      
+      # these should be set as GitHub Secrets
+      CLASH_TRACKER_DEVHUB_USERNAME: ${{ secrets.CLASH_TRACKER_DEVHUB_USERNAME }}
+      CLASH_TRACKER_DEVOPS_CLIENT_ID: ${{ secrets.CLASH_TRACKER_DEVOPS_CLIENT_ID }}
+      CLASH_TRACKER_DEVOPS_PK: ${{ secrets.CLASH_TRACKER_DEVOPS_PK }}
+
+      # GitHub Actions built-in variables
+      GITHUB_BRANCH: ${{ github.ref_name }}
+      GITHUB_RUN_ID: ${{ github.run_id }}
+      GITHUB_RUN_NUMBER: ${{ github.run_number }}
+      GITHUB_SHA: ${{ github.sha }}
+      GITHUB_REF_NAME: ${{ github.ref_name }}
+      GITHUB_ACTOR: ${{ github.actor }}
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: dependency-cache-${{ hashFiles('package.json') }}
+          restore-keys: |
+            dependency-cache-
+
+      - name: Install Dependencies
+        # env:
+        #   # OPTIONAL
+        #   # single step-specific environment variables
+        #   GITHUB_BRANCH: ${{ github.ref_name }}
+        run: bash ./scripts/bash/install_dependencies.sh ${{ github.ref_name }}
+
+      - name: Login to Dev Hub Org
+        run: bash ./scripts/bash/login_devhub_org.sh
+
+      - name: Request Scratch Org
+        run: bash ./scripts/bash/request_scratch_org.sh
+
+      - name: Validate Deployment w/Local Tests
+        run: bash ./scripts/bash/validate_deploy_apex_tests.sh
+
+      # covered by artifact captured in validateDeployResults.json
+      # - name: Upload test results
+      #   uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     name: test-results
+      #     path: test-results/
+
+      - name: Upload Dev Hub login results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: loginDevHubResults
+          path: loginDevHubResults.json
+
+      - name: Upload scratch org query results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: activeScratchOrgQueryResults
+          path: activeScratchOrgQueryResults.json
+
+      - name: Upload scratch org create results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scratchOrgCreateResults
+          path: scratchOrgCreateResults.json
+
+      - name: Upload scratch org login results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: loginScratchResults
+          path: loginScratchResults.json
+
+      - name: Upload validation results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validateDeployResults
+          path: validateDeployResults.json
+
+      # Optional: Publish test results if using a specific format
+      # - name: Publish test results
+      #   uses: dorny/test-reporter@v1
+      #   if: always()
+      #   with:
+      #     name: Apex Tests
+      #     path: 'test-results/*.xml'
+      #     reporter: java-junit
+      #     fail-on-error: true

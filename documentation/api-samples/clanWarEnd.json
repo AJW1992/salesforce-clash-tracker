@@ -1,0 +1,144 @@
+{
+  "state": "warEnded",
+  "teamSize": 25,
+  "attacksPerMember": 2,
+  "preparationStartTime": "20240114T215854.000Z",
+  "startTime": "20240115T205854.000Z",
+  "endTime": "20240116T205854.000Z",
+  "clan": {
+    "tag": "#CLAN_TAG",
+    "name": "CLAN",
+    "badgeUrls": {
+      "small": "https://api-assets.clashofclans.com/badges/BADGE.png",
+      "large": "https://api-assets.clashofclans.com/badges/BADGE.png",
+      "medium": "https://api-assets.clashofclans.com/badges/BADGE.png"
+    },
+    "clanLevel": 26,
+    "attacks": 43,
+    "stars": 63,
+    "destructionPercentage": 87.04,
+    "members": [
+      {
+        "tag": "#PLAYER_TAG",
+        "name": "PLAYER_NAME",
+        "townhallLevel": 16,
+        "mapPosition": 4,
+        "attacks": [
+          {
+            "attackerTag": "#ATTACKER_TAG",
+            "defenderTag": "#DEFENDER_TAG",
+            "stars": 2,
+            "destructionPercentage": 63,
+            "order": 33,
+            "duration": 112
+          },
+          {
+            "attackerTag": "#ATTACKER_TAG",
+            "defenderTag": "#DEFENDER_TAG",
+            "stars": 3,
+            "destructionPercentage": 100,
+            "order": 86,
+            "duration": 90
+          }
+        ],
+        "opponentAttacks": 2,
+        "bestOpponentAttack": {
+          "attackerTag": "#ATTACKER_TAG",
+          "defenderTag": "#DEFENDER_TAG",
+          "stars": 2,
+          "destructionPercentage": 68,
+          "order": 54,
+          "duration": 93
+        }
+      },
+      {
+        "tag": "#PLAYER_TAG",
+        "name": "PLAYER_NAME",
+        "townhallLevel": 16,
+        "mapPosition": 4,
+        "attacks": [
+          {
+            "attackerTag": "#ATTACKER_TAG",
+            "defenderTag": "#DEFENDER_TAG",
+            "stars": 2,
+            "destructionPercentage": 63,
+            "order": 33,
+            "duration": 112
+          }
+        ],
+        "opponentAttacks": 2,
+        "bestOpponentAttack": {
+          "attackerTag": "#ATTACKER_TAG",
+          "defenderTag": "#DEFENDER_TAG",
+          "stars": 2,
+          "destructionPercentage": 68,
+          "order": 54,
+          "duration": 93
+        }
+      },
+      {
+        "tag": "#PLAYER_TAG",
+        "name": "PLAYER_NAME",
+        "townhallLevel": 16,
+        "mapPosition": 4,
+        "opponentAttacks": 2,
+        "bestOpponentAttack": {
+          "attackerTag": "#ATTACKER_TAG",
+          "defenderTag": "#DEFENDER_TAG",
+          "stars": 2,
+          "destructionPercentage": 68,
+          "order": 54,
+          "duration": 93
+        }
+      }
+    ]
+  },
+  "opponent": {
+    "tag": "#OPPONENT_CLAN_TAG",
+    "name": "OPPONENT_CLAN",
+    "badgeUrls": {
+      "small": "https://api-assets.clashofclans.com/badges/BADGE.png",
+      "large": "https://api-assets.clashofclans.com/badges/BADGE.png",
+      "medium": "https://api-assets.clashofclans.com/badges/BADGE.png"
+    },
+    "clanLevel": 22,
+    "attacks": 43,
+    "stars": 62,
+    "destructionPercentage": 87.16,
+    "members": [
+      {
+        "tag": "#OPPONENT_PLAYER_TAG",
+        "name": "OPPONENT_PLAYER_NAME",
+        "townhallLevel": 16,
+        "mapPosition": 4,
+        "attacks": [
+          {
+            "attackerTag": "#ATTACKER_TAG",
+            "defenderTag": "#DEFENDER_TAG",
+            "stars": 2,
+            "destructionPercentage": 63,
+            "order": 33,
+            "duration": 112
+          },
+          {
+            "attackerTag": "#ATTACKER_TAG",
+            "defenderTag": "#DEFENDER_TAG",
+            "stars": 3,
+            "destructionPercentage": 100,
+            "order": 86,
+            "duration": 90
+          }
+        ],
+        "opponentAttacks": 2,
+        "bestOpponentAttack": {
+          "attackerTag": "#ATTACKER_TAG",
+          "defenderTag": "#DEFENDER_TAG",
+          "stars": 2,
+          "destructionPercentage": 68,
+          "order": 54,
+          "duration": 93
+        }
+      }
+    ]
+  }
+}

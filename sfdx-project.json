@@ -1,0 +1,16 @@
+{
+  "packageDirectories": [
+    {
+      "path": "clash-tracker",
+      "default": true,
+      "package": "Clash Tracker",
+      "versionName": "War Performance MVP",
+      "versionNumber": "1.0.0.NEXT",
+      "versionDescription": "Clash Tracker MVP for War Performance. This package includes the core functionality for tracking and analyzing non-CWL war performances."
+    }
+  ],
+  "name": "salesforce-clash-tracker",
+  "namespace": "",
+  "sfdcLoginUrl": "https://test.salesforce.com",
+  "sourceApiVersion": "65.0"
+}

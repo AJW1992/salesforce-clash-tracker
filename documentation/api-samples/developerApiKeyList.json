@@ -1,0 +1,26 @@
+{
+	"status": {
+		"code": 0,
+		"message": "ok",
+		"detail": null
+	},
+	"sessionExpiresInSeconds": 3377,
+	"keys": [
+		{
+			"id": "UUID_PLACEHOLDER",
+			"developerId": "UUID_PLACEHOLDER",
+			"tier": "TIER_PLACEHOLDER",
+			"name": "NAME_PLACEHOLDER",
+			"description": "DESCRIPTION_PLACEHOLDER",
+			"origins": null,
+			"scopes": [
+				"SCOPE_PLACEHOLDER_1", "SCOPE_PLACEHOLDER_2"
+			],
+			"cidrRanges": [
+				"IP_PLACEHOLDER_1", "IP_PLACEHOLDER_2"
+			],
+			"validUntil": null,
+			"key": "KEY_PLACEHOLDER"
+		}
+	]
+}

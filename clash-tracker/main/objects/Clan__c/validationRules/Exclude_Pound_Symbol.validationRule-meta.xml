@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_Pound_Symbol</fullName>
+    <active>true</active>
+    <errorConditionFormula
+  >LEFT(Tag__c, 1) == &apos;#&apos;</errorConditionFormula>
+    <errorDisplayField>Tag__c</errorDisplayField>
+    <errorMessage>Remove the leading &apos;#&apos; character.</errorMessage>
+</ValidationRule>

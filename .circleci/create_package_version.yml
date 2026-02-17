@@ -1,0 +1,78 @@
+version: 2.1
+
+orbs:
+  jq: circleci/jq@3.0.2
+  node: circleci/node@7.1.0
+
+jobs:
+  create-package-version:
+    executor: node/default
+    steps:
+      - checkout
+      - jq/install
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
+      - run:
+          name: Install Dependencies
+          command: . scripts/bash/install_dependencies.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Login to Dev Hub Org
+          command: . scripts/bash/login_devhub_org.sh
+      - run:
+          name: Create Package Version
+          command: . scripts/bash/create_package_version.sh
+      - store_artifacts:
+          path: loginDevHubResults.json
+      - store_artifacts:
+          path: packageVersionCreateResults.json
+      - store_artifacts:
+          path: packageVersionReport.json
+
+  install-package-version:
+    executor: node/default
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
+      - run:
+          name: Install Dependencies
+          command: . scripts/bash/install_dependencies.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Login to Build Org
+          command: . scripts/bash/login_build_org.sh
+      - run:
+          name: Create Package Version
+          command: . scripts/bash/install_package_version.sh
+      - store_artifacts:
+          path: loginBuildResults.json
+      - store_artifacts:
+          path: packageVersionInstallationResults.json
+
+workflows:
+  sfdx-workflow:
+    jobs:
+      - create-package-version:
+          filters:
+            branches:
+              only:
+                - /^release\/+v[0-9]+\.[0-9]+\.[0-9]+$/
+
+      - install-package-version:
+          requires:
+            - create-package-version
+          filters:
+            branches:
+              only:
+                - /^release\/+v[0-9]+\.[0-9]+\.[0-9]+$/

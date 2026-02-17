@@ -1,0 +1,12 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Clan__c",
+                "referenceId": "Clan_Ref1"
+            },
+            "Name": "TheCakeIsALie",
+            "Tag__c": "P9VJ9G9V"
+        }
+    ]
+}

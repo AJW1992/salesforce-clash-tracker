@@ -1,0 +1,1 @@
+SELECT Id, Name, Integration__c, CreatedDate FROM Apex_Debug_Log__c ORDER BY CreatedDate DESC

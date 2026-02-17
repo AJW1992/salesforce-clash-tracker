@@ -1,0 +1,4 @@
+SELECT
+    Id, ApexClass.Name, Status, CronTrigger.NextFireTime, CronTrigger.CronExpression
+FROM AsyncApexJob
+WHERE ApexClass.Name = 'ClashApiService'

@@ -1,0 +1,8 @@
+SELECT
+    Id,
+    ScratchOrg, OrgName, Namespace, ScratchOrgInfo.Release, ScratchOrgInfo.LoginUrl, ScratchOrgInfo.SourceOrg, Snapshot, SignupUsername, ExpirationDate,
+    ScratchOrgInfo.AuthCode, ScratchOrgInfo.ConnectedAppConsumerKey, ScratchOrgInfo.ConnectedAppCallbackUrl,
+    Features
+FROM ActiveScratchOrg
+WHERE OrgName = 'Validation - Clash Tracker'
+ORDER BY ExpirationDate DESC

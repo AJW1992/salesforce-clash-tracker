@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Clash of Clans API services</description>
+    <label>ClashOfClansAPI</label>
+    <namedCredentialReference>Clash_API</namedCredentialReference>
+    <operations>
+        <active>true</active>
+        <name>VerifyToken</name> <!-- value fetched from org: postV1PlayersVerifyTokenByPlayerTag -->
+    </operations>
+    <registrationProviderType>Custom</registrationProviderType>
+    <schema>openapi: 3.0.4
+info:
+  title: Clash of Clans
+  description: |-
+    OAS3 for the Clash of Clans API
+tags:
+  - name: players
+    description: player based services
+paths:
+  /v1/players/{playerTag}/verifytoken:
+    post:
+      tags:
+        - players
+      summary: &apos;Verify player API token that can be found from the game settings&apos;
+      description: Verify player API token that can be found from the game settings. This API call can be used to check that players own the game accounts they claim to own as they need to provide the one-time use API token that exists inside the game.
+      parameters:
+        - name: playerTag
+          in: path
+          description: Tag of the player
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: &apos;#/components/schemas/VerifyToken&apos;
+        required: true
+      responses:
+        &apos;200&apos;:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/VerifyTokenSuccess&apos;
+        &apos;400&apos;:
+          description: Bad request
+components:
+  schemas:
+    VerifyToken:
+      type: object
+      properties:
+        token:
+          type: string
+          example: &apos;&apos;
+    VerifyTokenSuccess:
+      type: object
+      properties:
+        tag:
+          type: string
+          example: &apos;&apos;
+        token:
+          type: string
+          example: &apos;&apos;
+        status:
+          type: string
+          example: &apos;&apos;</schema>
+    <schemaType>OpenApi3</schemaType>
+    <schemaUploadFileExtension>yaml</schemaUploadFileExtension>
+    <schemaUploadFileName>CoC_OpenAPI3</schemaUploadFileName>
+    <serviceBinding>{&quot;host&quot;:&quot;&quot;,&quot;basePath&quot;:&quot;/&quot;,&quot;allowedSchemes&quot;:[],&quot;requestMediaTypes&quot;:[],&quot;responseMediaTypes&quot;:[],&quot;compatibleMediaTypes&quot;:{}}</serviceBinding>
+    <status>Complete</status>
+    <systemVersion>6</systemVersion>
+</ExternalServiceRegistration>

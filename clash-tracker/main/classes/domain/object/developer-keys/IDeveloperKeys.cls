@@ -1,0 +1,1 @@
+public interface IDeveloperKeys extends fflib_IObjects {}

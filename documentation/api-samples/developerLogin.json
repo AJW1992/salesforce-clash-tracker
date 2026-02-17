@@ -1,0 +1,28 @@
+{
+	"status": {
+		"code": 0,
+		"message": "ok",
+		"detail": null
+	},
+	"sessionExpiresInSeconds": 3599,
+	"auth": {
+		"uid": "UUID_PLACEHOLDER",
+		"token": "REDACTED",
+		"ua": null,
+		"ip": null
+	},
+	"developer": {
+		"id": "UUID_PLACEHOLDER",
+		"name": "NAME_PLACEHOLDER",
+		"game": "clash",
+		"email": "EMAIL_PLACEHOLDER",
+		"tier": "TIER_PLACEHOLDER",
+		"allowedScopes": null,
+		"maxCidrs": null,
+		"prevLoginTs": "TIMESTAMP_PLACEHOLDER",
+		"prevLoginIp": "IP_PLACEHOLDER",
+		"prevLoginUa": "UA_PLACEHOLDER"
+	},
+	"temporaryAPIToken": "REDACTED",
+	"swaggerUrl": "https://api.clashofclans.com/v1/"
+}

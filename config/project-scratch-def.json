@@ -1,0 +1,22 @@
+{
+  "orgName": "Clash Tracker",
+  "edition": "Developer",
+  "features": [
+    "EnableSetPasswordInApi"
+  ],
+  "settings": {
+    "deploymentSettings": {
+      "doesSkipAsyncApexValidation": true
+    },
+    "lightningExperienceSettings": {
+      "enableLightningPreviewPref": true,
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "userManagementSettings": {
+      "enableNewProfileUI": true
+    }
+  }
+}

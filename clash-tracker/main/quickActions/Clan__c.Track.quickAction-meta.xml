@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionSubtype>Action</actionSubtype>
+    <description>Registers a clan to track player membership, wars and war performances</description>
+    <label>Track</label>
+    <lightningWebComponent>registerClanTracking</lightningWebComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningWebComponent</type>
+</QuickAction>

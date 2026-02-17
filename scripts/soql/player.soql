@@ -1,0 +1,1 @@
+SELECT Id, Tag__c, Name, Clan__c FROM Player__c

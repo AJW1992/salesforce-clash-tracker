@@ -1,0 +1,1 @@
+public interface IClans extends fflib_ISObjects {}

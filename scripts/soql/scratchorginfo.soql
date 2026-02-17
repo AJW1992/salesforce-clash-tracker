@@ -1,0 +1,8 @@
+SELECT
+    Id,
+    ScratchOrg, OrgName, Namespace, Release, LoginUrl, SourceOrg, Snapshot, SignupUsername, Status, ExpirationDate,
+    AuthCode, ConnectedAppConsumerKey, ConnectedAppCallbackUrl,
+    Features
+FROM ScratchOrgInfo
+WHERE Status = 'Active'
+ORDER BY ExpirationDate DESC

@@ -1,0 +1,1 @@
+public interface IClansSelector extends fflib_ISObjectSelector {}

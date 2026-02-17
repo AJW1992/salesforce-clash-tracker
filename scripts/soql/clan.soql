@@ -1,0 +1,1 @@
+SELECT Id, Tag__c, Name FROM Clan__c

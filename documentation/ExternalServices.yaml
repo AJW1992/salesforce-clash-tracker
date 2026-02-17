@@ -1,0 +1,60 @@
+openapi: 3.0.4
+info:
+  title: Clash of Clans
+  description: |-
+    OAS3 for the Clash of Clans API
+servers:
+  - url: https://api.clashofclans.com/v1
+tags:
+  - name: players
+    description: player based services
+paths:
+  /v1/players/{playerTag}/verifyToken:
+    post:
+      tags:
+        - players
+      summary: 'Verify player API token that can be found from the game settings'
+      description: Verify player API token that can be found from the game settings. This API call can be used to check that players own the game accounts they claim to own as they need to provide the one-time use API token that exists inside the game.
+      parameters:
+        - name: playerTag
+          in: path
+          description: Tag of the player
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyToken'
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyTokenSuccess'
+        '400':
+          description: Bad request
+components:
+  schemas:
+    VerifyToken:
+      type: object
+      properties:
+        token:
+          type: string
+          example: ''
+    VerifyTokenSuccess:
+      type: object
+      properties:
+        tag:
+          type: string
+          example: ''
+        token:
+          type: string
+          example: ''
+        status:
+          type: string
+          example: ''
