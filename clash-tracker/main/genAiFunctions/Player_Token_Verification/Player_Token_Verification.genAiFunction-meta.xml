@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This service can be invoked to verify a player&apos;s token. Invoke this action when the user asks about clash data.</description>
+    <developerName>Player_Token_Verification</developerName>
+    <invocationTarget>TokenVerificationService</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Player Token Verification</masterLabel>
+    <progressIndicatorMessage>Verifying...</progressIndicatorMessage>
+</GenAiFunction>

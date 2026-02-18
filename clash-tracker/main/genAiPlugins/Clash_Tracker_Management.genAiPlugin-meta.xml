@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aiPluginUtterances>
+        <developerName>utterance_caniseemyc0</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_caniseemyc0</masterLabel>
+        <utterance>Can I see my clash data?</utterance>
+    </aiPluginUtterances>
+    <aiPluginUtterances>
+        <developerName>utterance_canyouhelp1</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_canyouhelp1</masterLabel>
+        <utterance>Can you help me with my in-game account?</utterance>
+    </aiPluginUtterances>
+    <aiPluginUtterances>
+        <developerName>utterance_showmemycl2</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_showmemycl2</masterLabel>
+        <utterance>Show me my clash of clans account data.</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>Handles features and functionalities related to the Clash Tracker application. This includes managing user interactions and resolving inquiries specific to Clash Tracker.</description>
+    <developerName>Clash_Tracker_Management</developerName>
+    <genAiFunctions>
+        <functionName>Player_Token_Verification</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If a user requests anything related to their Clash of Clans data, verify their identity by using the Player Token Verification action.</description>
+        <developerName>instruction_ifauserreq1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifauserreq1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Clash Tracker Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to manage and address user requests related to the Clash Tracker application. Do not handle inquiries outside of this scope.</scope>
+</GenAiPlugin>

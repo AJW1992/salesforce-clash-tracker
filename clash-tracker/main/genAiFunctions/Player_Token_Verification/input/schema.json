@@ -1,0 +1,14 @@
+{
+  "required" : [ "evr" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "evr" : {
+      "title" : "evr",
+      "description" : "Retrieve this input from the user. If the player tag property includes a '#' character always remove it.",
+      "lightning:type" : "c__verifyTokenRequest",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
